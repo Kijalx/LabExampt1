@@ -7,10 +7,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
+import java.util.Objects;
 
 @FeignClient(name = "Warehouse", url = "https://localhost:8081/")
 public interface WarehouseInterface {
-    @GetMapping("/warehouseId/{id}")
-    String warehouseDetails(@RequestBody int id);
+    @PostMapping("/warehouseId")
+    WarehouseData warehouseDetails(@RequestBody ProductData productData);
+
 
 }

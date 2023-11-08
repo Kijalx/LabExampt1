@@ -15,9 +15,9 @@ public class ProductController {
     }
 
     @PostMapping("/addprod")
-    public String addProduct(@RequestBody ProductData productData){
+    public WarehouseData addProduct(@RequestBody ProductData productData){
         productService.addProduct(productData);
-        return "Added book";
+        return warehouseInterface.warehouseDetails(productData);
     }
 
     @GetMapping("/getprod/{id}")
