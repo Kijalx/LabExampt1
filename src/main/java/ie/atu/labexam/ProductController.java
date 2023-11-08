@@ -6,10 +6,12 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 public class ProductController {
     private ProductService productService;
+    private WarehouseInterface warehouseInterface;
 
     @Autowired
-    public ProductController(ProductService productService) {
+    public ProductController(ProductService productService, WarehouseInterface warehouseInterface) {
         this.productService = productService;
+        this.warehouseInterface = warehouseInterface;
     }
 
     @PostMapping("/addprod")
@@ -22,5 +24,4 @@ public class ProductController {
     public ProductData getProductById(@PathVariable int id){
         return productService.getProductByID(id);
     }
-
 }
